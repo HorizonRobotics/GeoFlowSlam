@@ -62,7 +62,7 @@ python run_rgbd_vi_g1.py
 ```
 The ROS2 node is also provided in Examples/ROS2/RGB-D-Inertial.
 The robust Mono-Inertial version tested in gopro camera is also provided in Examples/Monocular-Inertial.
-# 4. Real-geoworld Experiment
+# 4. Real-world Experiment
 <p align="center">
     <img src="pics/Seq1Video.gif" alt="Sample Image 1" width="45%" style="display:inline-block; margin-right:10px;"/>
     <img src="pics/Seq3Video.gif" alt="Sample Image 2" width="45%" style="display:inline-block;"/>
