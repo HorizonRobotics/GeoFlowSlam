@@ -1,0 +1,104 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+Camera.type: "PinHole"
+
+## first time don't set System.LoadAtlasFromFile
+# System.LoadAtlasFromFile: ""
+# System.SaveAtlasToFile: "maps_create"
+
+## not first time run, reuse map
+# System.LoadAtlasFromFile: "maps_create"
+# System.SaveAtlasToFile: "maps_update"
+#
+##
+#  640 480
+#  575.66571 578.05188
+#  320.287018 240.126617
+# Camera calibration and distortion parameters (OpenCV)
+Camera1.fx: 575.66571
+Camera1.fy: 578.05188
+Camera1.cx: 320.287018
+Camera1.cy: 240.126617
+
+Camera1.k1: 0.0
+Camera1.k2: 0.0
+Camera1.p1: 0.0
+Camera1.p2: 0.0
+Camera1.k3: 0.0
+
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second
+Camera.fps: 30
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+# Close/Far threshold. Baseline times.
+Stereo.ThDepth: 20.0
+Stereo.b: 0.0767
+
+# Depth map values factor
+# Depth map values factor
+RGBD.DepthMapFactor: 1000.0
+UseOpticalFlow: 0
+UseClahe: 0
+KFInsertInterval: 0.4 #默认为0.5s
+LKWindowSize: 30
+MASK_THRESHOLD: 10
+UseGMSInit: 1
+F_THRESHOLD: 1.0
+UseICP: 0
+UseICPLoop: 0
+UseICPLocalBA: 0
+TimeRecentlyLost: 20.0
+VoxelResolution: 0.1
+UsePointCloudObs: 1
+UseLidarLocalBA: 1
+DelayScale: 1
+Downsample: 1
+MaxIterations: 4
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 2000
+
+# ORB Extractor: Scale factor between levels in the scale pyramid
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast
+ORBextractor.iniThFAST: 12
+ORBextractor.minThFAST: 5
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500.0
+
+LidarMapping.GlobalResolution: 0.1
+LidarMapping.LocalResolution: 0.1
+LidarMapping.meank: 50
+LidarMapping.thresh: 0.2

@@ -1,0 +1,6 @@
+*.tgz filter=lfs diff=lfs merge=lfs -text
+Vocabulary/ORBvoc.txt.tar.gz filter=lfs diff=lfs merge=lfs -text
+pics/L515Video.gif filter=lfs diff=lfs merge=lfs -text
+pics/Seq4Video.gif filter=lfs diff=lfs merge=lfs -text
+pics/Seq5Video.gif filter=lfs diff=lfs merge=lfs -text
+pics/Seq6Video.gif filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,10 @@
+.vscode/*
+build/*
+imgui.ini
+
+*.pyc
+
+dist/*
+small_gicp.egg-info/*
+
+scripts/results/*

@@ -1,0 +1,127 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+Camera.type: "PinHole"
+
+# Camera calibration and distortion parameters (OpenCV) 
+Camera1.fx: 611.4509887695312
+Camera1.fy: 611.4857177734375
+Camera1.cx: 433.2039794921875
+Camera1.cy: 249.4730224609375
+
+# distortion parameters
+# Camera1.k1: 0.1465027779340744
+# Camera1.k2: -0.47989004850387573
+# Camera1.p1: -0.0008240030147135258
+# Camera1.p2: 0.0004609301104210317
+# Camera1.k3: 0.4350232481956482
+Camera1.k1: 0.0
+Camera1.k2: -0.0
+Camera1.p1: -0.000
+Camera1.p2: 0.000
+Camera1.k3: 0.0
+
+Camera.width: 848
+Camera.height: 480
+
+# Camera frames per second 
+Camera.fps: 20
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+Stereo.ThDepth: 40.0
+Stereo.b: 0.0745
+
+# Depth map values factor
+RGBD.DepthMapFactor: 1000.0
+UseOpticalFlow: 1
+UseClahe: 1
+KFInsertInterval: 0.5 #默认为0.5s
+LKWindowSize: 35
+MASK_THRESHOLD: 10
+UseGMSInit: 1
+F_THRESHOLD: 1.0
+UseICP: 1
+UseICPLoop: 0
+UseICPLocalBA: 0
+UseLidarLocalBA: 1
+TimeRecentlyLost: 20.0
+VoxelResolution: 0.2
+UsePointCloudObs: 1
+InsertKFsWhenLost: 1
+DelayScale: 1
+Downsample: 3
+UseRobotOdom: 0
+ICPMethod: "GICP"
+MaxIterations: 4
+T_odom_w: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: f
+   data: [0.0 ,-1.0,-0.0,
+            0.0,-0.0,-1.0,
+            1.0 ,0.0 ,-0.0]
+# Transformation from body-frame (imu) to left camera
+IMU.T_b_c1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f 
+   data: [0.999975572679493, -0.003849141066713, -0.005854714944742, -0.0203127935529,
+         0.003849141066713, 0.999986658473099, -0.003501944262433, 0.00510325236246,
+         0.005854714944742, 0.003501944262433, 0.999976848846595, 0.0112013882026,
+         0.0, 0.0, 0.0, 1.0]
+
+# Do not insert KFs when recently lost
+IMU.InsertKFsWhenLost: 1
+
+# IMU noise (Use those from VINS-mono)
+IMU.NoiseGyro: 0.01 # 3 # 2.44e-4 #1e-3 # rad/s^0.5
+IMU.NoiseAcc: 0.1 #2 # 1.47e-3 #1e-2 # m/s^1.5
+IMU.GyroWalk: 2.0e-5  # rad/s^1.5
+IMU.AccWalk: 0.0002  # m/s^2.5
+IMU.Frequency: 250.0
+IMU.IMUMethod: 0
+IMU.FasterInit: 0
+IMU.TimeRecentlyLost: 5.0
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1250
+
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 5
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -3.5
+Viewer.ViewpointF: 500.0
+LidarMapping.GlobalResolution: 0.4
+LidarMapping.LocalResolution: 0.2
+LidarMapping.meank: 50
+LidarMapping.thresh: 0.2
+LidarMapping.ConfigFile: "/home/tingyang/3d_recon/rgbd_mapping/ORB_SLAM3/Examples/RGB-D/config/D435i/lidar_d435i.yaml"

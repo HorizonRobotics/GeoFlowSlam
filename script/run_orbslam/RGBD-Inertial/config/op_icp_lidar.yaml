@@ -1,0 +1,126 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+Camera.type: "PinHole"
+# first time don't set System.LoadAtlasFromFile
+System.LoadAtlasFromFile: ""
+System.SaveAtlasToFile: "maps_create"
+
+## not first time run, reuse map
+# System.LoadAtlasFromFile: "maps_create"
+# System.SaveAtlasToFile: "maps_update"
+
+# Right Camera calibration and distortion parameters (OpenCV)
+# Camera1.fx: 596.9415283203125
+# Camera1.fy: 597.3031616210938
+# Camera1.cx: 325.96929931640625
+# Camera1.cy: 243.0147705078125
+Camera1.fx: 594.196
+Camera1.fy: 595.270
+Camera1.cx: 330.275
+Camera1.cy: 266.435
+# distortion parameters
+Camera1.k1: 0.1465027779340744
+Camera1.k2: -0.47989004850387573
+Camera1.p1: -0.0008240030147135258
+Camera1.p2: 0.0004609301104210317
+Camera1.k3: 0.4350232481956482
+
+# Camera resolution
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second 
+Camera.fps: 30
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+Stereo.ThDepth: 40.0
+Stereo.b: 0.0745
+
+# Depth map values factor
+RGBD.DepthMapFactor: 1000.0
+UseOpticalFlow: 1
+UseClahe: 1
+KFInsertInterval: 0.4 #默认为0.5s
+LKWindowSize: 30
+MASK_THRESHOLD: 10
+UseGMSInit: 1
+F_THRESHOLD: 1.0
+UseICP: 1
+UseICPLoop: 0
+UseICPLocalBA: 1
+TimeRecentlyLost: 10.0
+VoxelResolution: 0.1
+UsePointCloudObs: 1
+DelayScale: 1
+Downsample: 3
+MaxIterations: 4
+# Transformation from body-frame (imu) to left camera
+IMU.T_b_c1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [0.99987, -0.0132598, 0.0091809, 0.0132279,
+         0.0133979, 0.999795, -0.0151465, -0.00281495,
+         -0.00897818, 0.0152676, 0.999843, -0.00829777,
+         0.0, 0.0, 0.0, 1.0]
+
+# Do not insert KFs when recently lost
+IMU.InsertKFsWhenLost: 1
+
+# IMU noise (Use those from VINS-mono)
+# IMU.NoiseGyro: 1e-2 # 3 # 2.44e-4 #1e-3 # rad/s^0.5
+# IMU.NoiseAcc: 1e-1 #2 # 1.47e-3 #1e-2 # m/s^1.5
+# IMU.GyroWalk: 1e-6 # rad/s^1.5
+# IMU.AccWalk: 1e-4 # m/s^2.5
+IMU.NoiseGyro: 2.443e-3 # 3 # 2.44e-4 #1e-3 # rad/s^0.5
+IMU.NoiseAcc: 1.176e-2   #2 # 1.47e-3 #1e-2 # m/s^1.5
+IMU.GyroWalk: 1.0e-4  # rad/s^1.5
+IMU.AccWalk: 1.0e-3 # m/s^2.5
+IMU.Frequency: 200.0
+IMU.IMUMethod: 0
+IMU.FasterInit: 0
+IMU.TimeRecentlyLost: 10.0
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1200
+ORBextractor.type: ORB
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: 25
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -3.5
+Viewer.ViewpointF: 500.0
+
+LidarMapping.GlobalResolution: 0.1
+LidarMapping.LocalResolution: 0.1
+LidarMapping.meank: 50
+LidarMapping.thresh: 0.2

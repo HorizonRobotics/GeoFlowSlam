@@ -1,0 +1,140 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+Camera.type: "PinHole"
+# first time don't set System.LoadAtlasFromFile
+System.LoadAtlasFromFile: ""
+System.SaveAtlasToFile: "maps_create"
+
+## not first time run, reuse map
+# System.LoadAtlasFromFile: "maps_create"
+# System.SaveAtlasToFile: "maps_update"
+
+# Right Camera calibration and distortion parameters (OpenCV)
+# Camera1.fx: 596.9415283203125
+# Camera1.fy: 597.3031616210938
+# Camera1.cx: 325.96929931640625
+# Camera1.cy: 243.0147705078125
+# Camera calibration and distortion parameters (OpenCV) 
+Camera1.fx: 608.758056640625
+Camera1.fy: 608.5465087890625
+Camera1.cx: 315.64874267578125
+Camera1.cy: 243.93527221679688
+# distortion parameters
+Camera1.k1: 0.0
+Camera1.k2: 0.0
+Camera1.p1: 0.0
+Camera1.p2: 0.0
+
+# Camera resolution
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second 
+Camera.fps: 8
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+Stereo.ThDepth: 20.0
+Stereo.b: 0.0745
+
+# Depth map values factor
+RGBD.DepthMapFactor: 1000.0
+UseOpticalFlow: 1
+UseClahe: 1
+KFInsertInterval: 0.8 #默认为0.5s
+LKWindowSize: 40
+MASK_THRESHOLD: 10
+UseGMSInit: 1
+F_THRESHOLD: 1.0
+UseICP: 1
+UseICPLoop: 0
+UseICPLocalBA: 0
+UseLidarLocalBA: 0
+TimeRecentlyLost: 20.0
+VoxelResolution: 0.1
+UsePointCloudObs: 0
+UseRobotOdom: 1
+UseViewer: 1
+InsertKFsWhenLost: 1
+DelayScale: 0
+Downsample: 3
+ICPMethod: "GICP"
+MaxIterations: 4
+
+T_odom_w: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: f
+   data: [0.0 ,-1.0,-0.0,
+            0.0,-0.0,-1.0,
+            1.0 ,0.0 ,-0.0]
+# Transformation from body-frame (imu) to left camera
+IMU.T_b_c1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [0.99987, -0.00338209, -0.00384969, -0.0202332,
+         0.00336462, 0.999984, -0.0045361, 0.00505897,
+         0.00386497, 0.00452309, 0.999982, 0.0114843,
+         0.0, 0.0, 0.0, 1.0]
+
+# Do not insert KFs when recently lost
+IMU.InsertKFsWhenLost: 1
+
+# IMU noise (Use those from VINS-mono)
+# IMU.NoiseGyro: 1e-2 # 3 # 2.44e-4 #1e-3 # rad/s^0.5
+# IMU.NoiseAcc: 1e-1 #2 # 1.47e-3 #1e-2 # m/s^1.5
+# IMU.GyroWalk: 1e-6 # rad/s^1.5
+# IMU.AccWalk: 1e-4 # m/s^2.5
+IMU.NoiseGyro: 2.443e-3 # 3 # 2.44e-4 #1e-3 # rad/s^0.5
+IMU.NoiseAcc: 1.176e-2   #2 # 1.47e-3 #1e-2 # m/s^1.5
+IMU.GyroWalk: 1.0e-4  # rad/s^1.5
+IMU.AccWalk: 1.0e-3 # m/s^2.5
+IMU.Frequency: 200.0
+IMU.IMUMethod: 0
+IMU.FasterInit: 0
+IMU.TimeRecentlyLost: 20.0
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1500
+ORBextractor.type: ORB
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 2
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -3.5
+Viewer.ViewpointF: 500.0
+
+LidarMapping.GlobalResolution: 0.1
+LidarMapping.LocalResolution: 0.1
+LidarMapping.meank: 50
+LidarMapping.thresh: 0.2
+LidarMapping.ConfigFile: "/home/tingyang/3d_recon/rgbd_mapping/ORB_SLAM3/Examples/RGB-D/config/D435i/lidar_d435i.yaml"

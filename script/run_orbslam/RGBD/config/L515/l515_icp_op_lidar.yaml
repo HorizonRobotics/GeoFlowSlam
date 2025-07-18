@@ -1,0 +1,113 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+Camera.type: "PinHole"
+
+## first time don't set System.LoadAtlasFromFile
+# System.LoadAtlasFromFile: ""
+# System.SaveAtlasToFile: "maps_create"
+
+## not first time run, reuse map
+# System.LoadAtlasFromFile: "maps_create"
+# System.SaveAtlasToFile: "maps_update"
+#
+##
+# Camera calibration and distortion parameters (OpenCV) 
+# Camera1.fx: 596.9415283203125
+# Camera1.fy: 597.3031616210938
+# Camera1.cx: 325.96929931640625
+# Camera1.cy: 243.0147705078125
+
+# # distortion parameters
+# Camera1.k1: 0.1465027779340744
+# Camera1.k2: -0.47989004850387573
+# Camera1.p1: -0.0008240030147135258
+# Camera1.p2: 0.0004609301104210317
+# Camera1.k3: 0.4350232481956482
+
+Camera1.fx: 594.196
+Camera1.fy: 595.270
+Camera1.cx: 330.275
+Camera1.cy: 266.435
+# distortion parameters
+Camera1.k1: 0.1465027779340744
+Camera1.k2: -0.47989004850387573
+Camera1.p1: -0.0008240030147135258
+Camera1.p2: 0.0004609301104210317
+Camera1.k3: 0.4350232481956482
+
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second
+Camera.fps: 30
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+# Close/Far threshold. Baseline times.
+Stereo.ThDepth: 40.0
+Stereo.b: 0.07732
+
+# Depth map values factor
+# Depth map values factor
+RGBD.DepthMapFactor: 1000.0
+UseOpticalFlow: 1
+UseClahe: 1
+KFInsertInterval: 0.5 #默认为0.5s
+LKWindowSize: 30
+MASK_THRESHOLD: 10
+UseGMSInit: 1
+F_THRESHOLD: 1.0
+UseICP: 1
+UseICPLoop: 0
+UseICPLocalBA: 1
+UseLidarLocalBA: 0
+TimeRecentlyLost: 10.0
+VoxelResolution: 0.1
+UsePointCloudObs: 1
+DelayScale: 1
+Downsample: 3
+MaxIterations: 4
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1000
+
+# ORB Extractor: Scale factor between levels in the scale pyramid
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast
+ORBextractor.iniThFAST: 10
+ORBextractor.minThFAST: 5
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500.0
+
+LidarMapping.GlobalResolution: 0.1
+LidarMapping.LocalResolution: 0.1
+LidarMapping.meank: 50
+LidarMapping.thresh: 0.2

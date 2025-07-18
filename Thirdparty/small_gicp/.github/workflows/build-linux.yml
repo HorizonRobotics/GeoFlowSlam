@@ -1,0 +1,40 @@
+name: linux
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore: '**.md'
+  pull_request:
+    branches: [ master ]
+    paths-ignore: '**.md'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        DISTRO: [noble, jammy, focal]
+        TOOLCHAIN: [gcc, llvm]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Docker login
+        continue-on-error: true
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Docker build
+        uses: docker/build-push-action@v2
+        with:
+          file: ${{github.workspace}}/docker/Dockerfile.pytest.${{ matrix.TOOLCHAIN }}
+          build-args: BASE_IMAGE=ubuntu:${{ matrix.DISTRO }}
+          context: .
+          push: false

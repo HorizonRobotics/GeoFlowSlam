@@ -1,0 +1,107 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+Camera.type: "KannalaBrandt8"
+# Camera calibration and distortion parameters (OpenICC https://github.com/urbste/OpenImuCameraCalibrator) 
+# Camera1.fx: 794.0954696386523 # 190.97847715128717
+# Camera1.fy: 794.0954696386523 # 190.9733070521226
+# Camera1.cx: 1355.1549548657986 # 254.93170605935475
+# Camera1.cy: 1011.1244310439472 # 256.8974428996504
+
+# Camera1.k1: -0.017458392874590136 # 0.0034823894022493434
+# Camera1.k2: -0.028082549474531236 # 0.0007150348452162257
+# Camera1.k3: 0.01283269195493874 # -0.0020532361418706202
+# Camera1.k4: -0.004519804281212253 # 0.00020293673591811182
+Camera1.fx: 188.60460651 # 190.97847715128717
+Camera1.fy: 188.60460651 # 190.9733070521226
+Camera1.cx: 320.57432535 # 254.93170605935475
+Camera1.cy: 239.40467006 # 256.8974428996504
+
+Camera1.k1: -0.017458392874590136 # 0.0034823894022493434
+Camera1.k2: -0.028082549474531236 # 0.0007150348452162257
+Camera1.k3: 0.01283269195493874 # -0.0020532361418706202
+Camera1.k4: -0.004519804281212253 # 0.00020293673591811182
+
+# Camera resolution
+Camera.width: 640
+Camera.height: 480
+
+# Camera.width: 2704
+# Camera.height: 2028
+# Camera frames per second 
+Camera.fps: 60
+
+UseOpticalFlow: 1
+UseClahe: 1
+KFInsertInterval: 0.4 #默认为0.5s
+LKWindowSize: 30
+MASK_THRESHOLD: 10
+UseGMSInit: 1
+F_THRESHOLD: 1.0
+UseICP: 0
+UseICPLoop: 0
+UsePointCloudObs: 0
+UseICPLocalBA: 0
+TimeRecentlyLost: 20.0
+DelayScale: 3.0
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+    
+# Transformation from camera to imu (body frame)
+# calibrated with OpenICC https://github.com/urbste/OpenImuCameraCalibrator
+IMU.T_b_c1: !!opencv-matrix
+    rows: 4
+    cols: 4
+    dt: f
+    data: [-0.999972, -0.00210336, -0.00711724,   0.00335434, 
+           0.00710551,  0.00553032 ,  -0.999959, -0.0267601,
+          0.00214264 ,  -0.999982, -0.00551522, -0.000306161,
+          0.0, 0.0, 0.0, 1.0]
+
+# IMU noise -> use OpenICC https://github.com/urbste/OpenImuCameraCalibrator
+IMU.NoiseGyro: 0.0015 # rad/s^0.5 
+IMU.NoiseAcc: 0.017 # m/s^1.5
+IMU.GyroWalk: 5.0e-5 # rad/s^1.5
+IMU.AccWalk: 0.0055 # m/s^2.5
+IMU.Frequency: 200.0
+IMU.IMUMethod: 0
+IMU.FasterInit: 0
+IMU.TimeRecentlyLost: 5.0
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1250 # 1000
+
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: 8
+#ORBextractor.type: "SUPERPOINT"
+ORBextractor.type: "ORB"
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+System.thFarPoints: 20.0 # meters
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -3.5 # -1.8
+Viewer.ViewpointF: 500.0
+

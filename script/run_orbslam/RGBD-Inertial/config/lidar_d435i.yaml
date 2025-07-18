@@ -1,0 +1,23 @@
+%YAML:1.0
+
+lidar:  
+    frequency: 30 
+    min_distance: 0.2           
+    max_distance: 8.0                               
+    horizontal_angle: 70.0
+    odom_n_rpy: 1.0e-2        
+    odom_n_xyz: 1.0e-2
+    local_map_resolution: 0.02
+    local_map_size: 10.0
+    edge_n: 1.0e-2
+    surf_n: 1.0e-2
+
+    # mapping thread
+    map_resolution: 0.1
+    map_cell_width: 20.0
+    map_cell_height: 20.0
+    map_cell_depth: 20.0
+    map_cell_width_range: 4
+    map_cell_height_range: 4
+    map_cell_depth_range: 4
+
