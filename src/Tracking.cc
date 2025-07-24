@@ -1811,9 +1811,8 @@ void Tracking::PreintegrateIMU() {
       angVel = mvImuFromLastFrame[i].w;
       tstep = mCurrentFrame.mTimeStamp - mCurrentFrame.mpPrevFrame->mTimeStamp;
     }
-
-    if (!mpImuPreintegratedFromLastKF)
-      mpImuPreintegratedFromLastKF->IntegrateNewMeasurement(acc, angVel, tstep);
+    
+    mpImuPreintegratedFromLastKF->IntegrateNewMeasurement(acc, angVel, tstep);
     pImuPreintegratedFromLastFrame->IntegrateNewMeasurement(acc, angVel, tstep);
   }
 
