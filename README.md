@@ -1,5 +1,6 @@
 
 # GeoFlow-SLAM: A Robust Tightly-Coupled RGBD-Inertial and Legged Odometry Fusion SLAM for Dynamic Legged Robotics
+Our paper is recived by IROS2025.
 
 [![Arxiv](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/abs/2503.14247)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/HorizonRobotics/GeoFlowSlam)
@@ -78,6 +79,14 @@ The robust Mono-Inertial version tested in gopro camera is also provided in Exam
 
 
 # 5. The Go2 and G1 Dataset
-The datasets will be released to [unitree_legged_robotic_datasets](https://huggingface.co/datasets/HorizonRobotics/unitree_legged_robotic_datasets). 
-If you use our datasets, please cite our paper.
-
+The datasets will be released to [unitree_legged_robotic_datasets](https://huggingface.co/datasets/HorizonRobotics/unitree_legged_robotic_datasets).  If you use our datasets, please cite our paper.
+```
+@misc{xiao2025geoflowslamrobusttightlycoupledrgbdinertial,
+      title={GeoFlow-SLAM: A Robust Tightly-Coupled RGBD-Inertial and Legged Odometry Fusion SLAM for Dynamic Legged Robotics}, 
+      author={Tingyang Xiao and Xiaolin Zhou and Liu Liu and Wei Sui and Wei Feng and Jiaxiong Qiu and Xinjie Wang and Zhizhong Su},
+      year={2025},
+      eprint={2503.14247},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2503.14247}, 
+}
