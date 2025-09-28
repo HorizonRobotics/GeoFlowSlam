@@ -79,7 +79,7 @@ The robust Mono-Inertial version tested in gopro camera is also provided in Exam
 
 
 # 5. The Go2 and G1 Dataset
-The datasets will be released to [unitree_legged_robotic_datasets](https://huggingface.co/datasets/HorizonRobotics/unitree_legged_robotic_datasets).  If you use our datasets, please cite our paper.
+The datasets are released to [unitree_legged_robotic_datasets](https://drive.google.com/drive/folders/112ynmzKfDfqIze5Fj5eD70TfxVnSj35t?usp=sharing). Thank you for citing our paper.
 ```
 @misc{xiao2025geoflowslamrobusttightlycoupledrgbdinertial,
       title={GeoFlow-SLAM: A Robust Tightly-Coupled RGBD-Inertial and Legged Odometry Fusion SLAM for Dynamic Legged Robotics}, 
